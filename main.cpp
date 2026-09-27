@@ -3,8 +3,8 @@
 
 int main()
 {
-  CarEngine car_engine {50};
-  car_engine.set_fuel(30);
+  CarEngine car_engine {120};
+  car_engine.set_fuel(60.0);
   car_engine.start();
   car_engine.start();
 

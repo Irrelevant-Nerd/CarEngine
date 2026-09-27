@@ -1,6 +1,13 @@
 #ifndef CAR_ENGINE
 #define CAR_ENGINE
 
+enum class EngineState
+{
+  On,
+  Off,
+  OutOfFuel
+};
+
 class CarEngine
 {
 public:
@@ -22,8 +29,8 @@ public:
 
 private:
   double m_cur_fuel_level { 0.0 };
-  double m_max_fuel_level { 60.0 }; // liters, max: 60.0
-  bool m_running { false };
+  double m_max_fuel_level { 0.0 };
+  EngineState m_engine_state {EngineState::Off};
 };
 
 #endif /*CAR_ENGINE*/
