@@ -13,7 +13,7 @@ class CarEngine
 public:
   CarEngine() = default;
 
-  CarEngine(double max_fuel_level);
+  CarEngine(double max_fuel_level, double fuel_liters_consumption);
 
   void start();
 
@@ -27,9 +27,28 @@ public:
 
   double get_max_fuel_liters() const;
 
+  int get_possible_distance();
+
+  double get_fuel_consumption_rate();
+
+  double get_fuel_consumed(int distance_traveled);
+
+  void travel(int distance_traveled);
+
+  void check_fuel();
+
 private:
-  double m_cur_fuel_level { 0.0 };
+  void calculate_possible_distance();
+
+private:
   double m_max_fuel_level { 0.0 };
+  double m_cur_fuel_level { 0.0 };
+
+  int m_possible_distance { 0 };
+
+  double m_fuel_consumption_rate { 0.0 };
+  double m_fuel_consumed { 0.0 };
+
   EngineState m_engine_state {EngineState::Off};
 };
 

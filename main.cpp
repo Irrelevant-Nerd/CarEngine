@@ -3,14 +3,16 @@
 
 int main()
 {
-  CarEngine car_engine {120};
-  car_engine.set_fuel(60.0);
-  car_engine.start();
-  car_engine.start();
+  CarEngine car_engine {120, 20};
+  car_engine.set_fuel(100);
 
-  std::cout << "Fuel: " << car_engine.get_fuel_percentage() << "%\n";
-  std::cout << "Current fuel in liters: " << car_engine.get_fuel_liters() << '\n';
-  std::cout << "Max fuel in liters: " << car_engine.get_max_fuel_liters() << '\n';
+  car_engine.start();
+  car_engine.start();
+  std::cout << "possible distance: " << car_engine.get_possible_distance() << "km\n";
+  std::cout << "consumption rate: " << car_engine.get_fuel_consumption_rate() << '\n';
+  std::cout << "current fuel level before depletion: " << car_engine.get_fuel_liters() << "L\n";
+
+  car_engine.travel(50);
 
   car_engine.stop();
   car_engine.stop();
